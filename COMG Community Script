@@ -1,0 +1,72 @@
+-- Variables
+
+local pet = nil -- Placeholder for the pet object
+
+-- Function to give the player a pet
+
+local function givePet()
+
+    -- Create a new pet object
+
+    pet = Instance.new("Part")
+
+    pet.Name = "Pet"
+
+    pet.Size = Vector3.new(2, 2, 2)
+
+    pet.Position = Vector3.new(0, 5, 0)
+
+    pet.BrickColor = BrickColor.new("Bright green")
+
+    pet.Parent = workspace
+
+    
+
+    -- Function to handle pet interactions
+
+    local function onPetClick(player)
+
+        print(player.Name .. " interacted with the pet!")
+
+    end
+
+    
+
+    -- Connect the pet interaction event
+
+    pet.MouseClick:Connect(onPetClick)
+
+    
+
+    print("Pet given to player!")
+
+end
+
+-- Function to remove the player's pet
+
+local function removePet()
+
+    if pet then
+
+        pet:Destroy()
+
+        pet = nil
+
+        print("Pet removed from player!")
+
+    else
+
+        print("Player doesn't have a pet!")
+
+    end
+
+end
+
+-- Example usage: give a pet to the player
+
+givePet()
+
+-- Example usage: remove the player's pet
+
+removePet()
+
